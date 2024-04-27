@@ -1,0 +1,47 @@
+#map-container {
+    position: relative;
+    display: flex;
+    height: 100vh;
+}
+
+#map {
+    flex: 1;
+    height: 100%;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px; /* Inicialmente oculto */
+    width: 250px;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    margin-bottom: 10px;
+}
+
+#sidebar ul li a img {
+    max-width: 50px;
+    height: auto;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 999; /* Asegura que esté por encima del mapa */
+    transition: 0.5s; /* Agrega transición para el movimiento del botón */
+}
