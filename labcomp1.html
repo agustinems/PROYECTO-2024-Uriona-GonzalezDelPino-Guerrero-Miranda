@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <style>
+        #map-container {
+            display: flex;
+        }
+        #map {
+            flex: 1;
+            height: 100vh;
+        }
+        #sidebar {
+            width: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            margin-bottom: 10px;
+        }
+        #sidebar ul li a img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="map-container">
+    <div id="map"></div>
+    <div id="sidebar">
+        <h2>Menú</h2>
+        <ul>
+            <li><a href="#"><img src="s://" alt="Opción 1"><img src="motomenui.png" height="0.050" width="0.050"/></a></li>
+            <li><a href="#"><img src="" alt="Opción 2"><img src="bicletamenu.jpeg" height="0.05" width="0.05"/></a></li>
+            <li><a href="#"><img src="    " alt="Opción 3"><img src="descarga.jpg" height="0.05" width="0.05"/></a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE42F0coCS36qezWr4HpHBtfjW8yvtvqQ&callback=initMap" async defer></script>
+<script>
+    let map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -34.603722, lng: -58.381592 }, // Cambia a las coordenadas que desees
+            zoom: 12 // Cambia el nivel de zoom según prefieras
+        });
+    }
+</script>
+</body>
+</html>
