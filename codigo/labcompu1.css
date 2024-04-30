@@ -2,20 +2,26 @@
     position: relative;
     display: flex;
     height: 100vh;
+
+
+
 }
 
 #map {
-    flex: 1;
+
     height: 100%;
+    width: 93vw;
+    margin-left:auto; /* Centra el mapa hacia la izquierda */
+    margin-right: 10; /* Elimina el margen derecho */
 }
 
 #sidebar {
     position: absolute;
     top: 0;
-    left: -250px; /* Inicialmente oculto */
+    left: -500px; /* Inicialmente oculto */
     width: 250px;
     height: 100%;
-    background-color: #f1f1f1;
+    background-color: #FFFFFF;
     padding: 20px;
     overflow-x: hidden;
     transition: 0.5s;
@@ -27,15 +33,14 @@
 }
 
 #sidebar ul li {
-    margin-bottom: 10px;
+    margin-bottom: -5px;
+    margin-left: 0px;
+    margin-right: 0px;
+
 }
 
-#sidebar ul li a img {
-    max-width: 50px;
-    height: auto;
-    display: inline-block;
-    margin-right: 5px;
-}
+
+
 
 #menu-toggle {
     position: absolute;
