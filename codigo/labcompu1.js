@@ -5,14 +5,16 @@ let markers = [];
 function initMap() {
     // Inicializa el mapa con coordenadas y zoom específicos
     map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -31.48516360071856, lng: -64.26014092088036 },
-        zoom: 12
+        center: { lat: -31.4159118742952, lng: -64.18354716360302 },
+        zoom: 11
     });
 
     // Agrega los marcadores iniciales
     addMarker(-31.48516360071856, -64.26014092088036, 'bicicleta', 'pablo');
     addMarker(-31.499022868424873, -64.26014092088036, 'motocross', 'fer');
     addMarker(-31.472090288661857, -64.24215648409528, 'trekking', 'Información del marcador 3');
+    addMarker(-31.39743983075342, -64.31662985423435, 'motocross', 'fer');
+    //-31.39743983075342, -64.31662985423435
 }
 
 
