@@ -10,11 +10,16 @@ function initMap() {
     });
 
     // Agrega los marcadores iniciales
-    addMarker(-31.48516360071856, -64.26014092088036, 'bicicleta', 'pablo');
-    addMarker(-31.499022868424873, -64.26014092088036, 'motocross', 'fer');
-    addMarker(-31.472090288661857, -64.24215648409528, 'trekking', 'Información del marcador 3');
-    addMarker(-31.39743983075342, -64.31662985423435, 'motocross', 'fer');
-    //-31.39743983075342, -64.31662985423435
+
+    addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', ['trekking'], 'media');
+    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['motocross', 'bicicleta'], 'facil');
+    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', ['trekking'], 'facil');
+    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', ['trekking'], 'dificil');
+    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', ['trekking'], 'dificil');
+    addMarker(-32.22307606731555, -64.74533972889947, 'Monte Barranco', ['motocross'], 'media');
+    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', ['trekking', 'motocross', 'bicicleta'], 'dificil');
+    addMarker(-32.40623921216752, -64.89714148934935, 'Salto del Tigre', ['bicicleta'], 'medio');
+    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', ['bicicleta'], 'dificil');
 }
 
 
