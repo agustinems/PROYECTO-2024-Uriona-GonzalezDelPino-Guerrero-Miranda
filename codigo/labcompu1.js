@@ -160,9 +160,4 @@ todasLink.addEventListener('click', function() {
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-// Agrega eventos de clic al botón "Mostrar Todos"
-document.getElementById('reset-btn').addEventListener('click', function() {
-    tipoFiltroActual = 'Todo';
-    dificultadFiltroActual = 'Todas';
-    filterMarkers(tipoFiltroActual, dificultadFiltroActual);
-});
+
