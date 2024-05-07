@@ -10,18 +10,19 @@
 #map {
 
     height: 100%;
-    width: 93vw;
+    width: 95vw;
     margin-left:auto; /* Centra el mapa hacia la izquierda */
     margin-right: 10; /* Elimina el margen derecho */
+
 }
 
 #sidebar {
     position: absolute;
     top: 0;
     left: -500px; /* Inicialmente oculto */
-    width: 250px;
+    width: 200px;
     height: 100%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 20px;
     overflow-x: hidden;
     transition: 0.5s;
@@ -38,9 +39,12 @@
     margin-right: 0px;
 
 }
+#sidebar ul li {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
 
-
-
+}
 
 #menu-toggle {
     position: absolute;
@@ -49,4 +53,41 @@
     cursor: pointer;
     z-index: 999; /* Asegura que esté por encima del mapa */
     transition: 0.5s; /* Agrega transición para el movimiento del botón */
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los botones de dificultad */
+#sidebar ul li button {
+    background-color: #808080;
+}
+
+#sidebar ul li button:hover {
+    background-color: #004400;
+}
+
+/* Estilos para el botón "Mostrar Todos" */
+#reset-btn button {
+    background-color: #dc3545;
+}
+
+#reset-btn button:hover {
+    background-color: #c82333;
 }

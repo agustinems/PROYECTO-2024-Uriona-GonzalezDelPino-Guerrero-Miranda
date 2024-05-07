@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa</title>
-    <link rel="stylesheet" href="">
-    <script src="labcompu1.js"></script>
     <link rel="stylesheet" href="labcompu1.css">
 </head>
 <body>
 <div id="map-container">
     <div id="map"></div>
     <div id="sidebar">
-        <h2>Menú</h2>
+        <h1>Menú</h1>
+        <h2>Actividad</h2>
         <ul>
-
-            <li><button onclick="filterMarkers('bicicleta')"><img src=""><img src="../imagenes/bicletamenu.jpeg"
-                                                                              height="50" width="50"/>
-                <li><button onclick="filterMarkers('motocross')"><img src=""><img src="../imagenes/motomenui.png"
-                                                                                  height="50" width="50"/>
-                    <li><button onclick="filterMarkers('trekking')"><img src=""><img src="../imagenes/trekkingmenu2.png"
-                                                                                      height="50" width="40"/>
-                        <li id="reset-btn"><button onclick="resetMarkers()">Mostrar Todos</button></li>
-                        <ul>
+            <li><button id="trekking-link">Trekking</button></li>
+            <li><button id="motocross-link">Motocross</button></li>
+            <li><button id="bicicleta-link">Bicicleta</button></li>
+            <li><button id="todo-link">Todo</button></li>
+        </ul>
+        <h2>Dificultad</h2>
+        <ul>
+            <li><button id="facil-link">Fácil</button></li>
+            <li><button id="medio-link">Medio</button></li>
+            <li><button id="dificil-link">Difícil</button></li>
+            <li><button id="todas-link">Todas</button></li>
+        </ul>
+        <ul>
+            <li id="reset-btn"><button>Mostrar Todos</button></li>
+        </ul>
     </div>
     <div id="menu-toggle" onclick="toggleSidebar()">
         <img src="" alt=""><img src="../imagenes/barras.png" height="50" width="40"/>
     </div>
 </div>
-<script src=""></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE42F0coCS36qezWr4HpHBtfjW8yvtvqQ&callback=initMap" async defer></script>
+<script src="labcompu1.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE42F0coCS36qezWr4HpHBtfjW8yvtvqQ&libraries=geometry&callback=initMap" async defer></script>
+
 </body>
 </html>
+
 
