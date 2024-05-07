@@ -1,8 +1,8 @@
 let map;
 let sidebarOpened = false;
 let markers = [];
-let tipoFiltroActual = 'todo';
-let dificultadFiltroActual = 'todas';
+let tipoFiltroActual = 'Todo';
+let dificultadFiltroActual = 'Todas';
 
 function initMap() {
     // Inicializa el mapa con coordenadas y zoom específicos
@@ -12,15 +12,15 @@ function initMap() {
     });
 
     // Agrega los marcadores iniciales
-    addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', 'trekking', 'medio', '');
-    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['motocross', 'bicicleta'], 'facil');
-    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'trekking', 'facil');
-    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'trekking', 'dificil');
-    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'trekking', 'dificil');
-    addMarker(-32.22307606731555, -64.74533972889947, 'Monte Barranco', 'motocross', 'medio');
-    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'todo', 'dificil');
-    addMarker(-32.40623921216752, -64.89714148934935, 'Salto del Tigre', 'Bicicleta', 'medio');
-    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'dificil');
+    addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', 'Trekking', 'Medio');
+    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Facil');
+    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Facil');
+    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Dificil');
+    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Dificil');
+    addMarker(-32.22307606731555, -64.74533972889947, 'Monte Barranco', 'Motocross', 'Medio');
+    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'Todo', 'Dificil');
+    addMarker(-32.40623921216752, -64.89714148934935, 'Salto del Tigre', 'Bicicleta', 'Medio');
+    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'Dificil');
 
     // Filtra los marcadores según los valores iniciales
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
@@ -96,7 +96,7 @@ function filterMarkers(tipoFiltro, dificultadFiltro) {
     // Itera sobre todos los marcadores
     for (let i = 0; i < markers.length; i++) {
         // Comprueba si el marcador coincide con el tipo y la dificultad seleccionados
-        if ((tipoFiltro === 'todo' || markers[i].tipo.includes(tipoFiltro)) && (dificultadFiltro === 'todas' || markers[i].dificultad === dificultadFiltro)) {
+        if ((tipoFiltro === 'Todo' || markers[i].tipo.includes(tipoFiltro)) && (dificultadFiltro === 'Todas' || markers[i].dificultad === dificultadFiltro)) {
             // Muestra el marcador si coincide con los filtros
             markers[i].setVisible(true);
         } else {
@@ -107,57 +107,62 @@ function filterMarkers(tipoFiltro, dificultadFiltro) {
 }
 
 // Obtiene los elementos del menú lateral
-var trekkingLink = document.getElementById('trekking-link');
-var motocrossLink = document.getElementById('motocross-link');
-var bicicletaLink = document.getElementById('bicicleta-link');
-var todoLink = document.getElementById('todo-link');
+var TrekkingLink = document.getElementById('Trekking-link');
+var MotocrossLink = document.getElementById('Motocross-link');
+var BicicletaLink = document.getElementById('Bicicleta-link');
+var TodoLink = document.getElementById('Todo-link');
 
 // Obtiene los elementos del menú de dificultad
-var facilLink = document.getElementById('facil-link');
-var medioLink = document.getElementById('medio-link');
-var dificilLink = document.getElementById('dificil-link');
-var todasLink = document.getElementById('todas-link');
+var FacilLink = document.getElementById('Facil-link');
+var MedioLink = document.getElementById('Medio-link');
+var DificilLink = document.getElementById('Dificil-link');
+var TodasLink = document.getElementById('Todas-link');
 
 // Agrega eventos de clic a los elementos del menú de tipo de actividad
-trekkingLink.addEventListener('click', function() {
+TrekkingLink.addEventListener('click', function() {
     tipoFiltroActual = 'Trekking';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-motocrossLink.addEventListener('click', function() {
+MotocrossLink.addEventListener('click', function() {
     tipoFiltroActual = 'Motocross';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-bicicletaLink.addEventListener('click', function() {
+BicicletaLink.addEventListener('click', function() {
     tipoFiltroActual = 'Bicicleta';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-todoLink.addEventListener('click', function() {
+TodoLink.addEventListener('click', function() {
     tipoFiltroActual = 'Todo';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 // Agrega eventos de clic a los elementos del menú de dificultad
-facilLink.addEventListener('click', function() {
+FacilLink.addEventListener('click', function() {
     dificultadFiltroActual = 'Facil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-medioLink.addEventListener('click', function() {
+MedioLink.addEventListener('click', function() {
     dificultadFiltroActual = 'Medio';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-dificilLink.addEventListener('click', function() {
+DificilLink.addEventListener('click', function() {
     dificultadFiltroActual = 'Dificil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-todasLink.addEventListener('click', function() {
+TodasLink.addEventListener('click', function() {
     dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-
+// Agrega eventos de clic al botón "Mostrar Todos"
+document.getElementById('reset-btn').addEventListener('click', function() {
+    tipoFiltroActual = 'Todo';
+    dificultadFiltroActual = 'Todas';
+    filterMarkers(tipoFiltroActual, dificultadFiltroActual);
+});
