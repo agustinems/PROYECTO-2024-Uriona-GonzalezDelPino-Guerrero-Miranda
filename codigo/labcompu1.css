@@ -10,18 +10,19 @@
 #map {
 
     height: 100%;
-    width: 93vw;
+    width: 95vw;
     margin-left:auto; /* Centra el mapa hacia la izquierda */
     margin-right: 10; /* Elimina el margen derecho */
+
 }
 
 #sidebar {
     position: absolute;
     top: 0;
     left: -500px; /* Inicialmente oculto */
-    width: 250px;
+    width: 200px;
     height: 100%;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 20px;
     overflow-x: hidden;
     transition: 0.5s;
@@ -60,7 +61,7 @@ button {
     margin-bottom: 10px;
     border: none;
     background-color: #007bff;
-    color: #fff;
+    color: #ffffff;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -75,7 +76,7 @@ button:hover {
 
 /* Estilos para los botones de dificultad */
 #sidebar ul li button {
-    background-color: #28a745;
+    background-color: #808080;
 }
 
 #sidebar ul li button:hover {

@@ -64,7 +64,7 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     var infowindowContent = '<div><h3>' + nombre + '</h3>';
     infowindowContent += '<p>Tipo: ' + tipo + '</p>';
     infowindowContent += '<p>Dificultad: ' + dificultad + '</p>';
-    infowindowContent += '<p>Distancia desde el centro: ' + distance.toFixed(2) + ' km</p>';
+    infowindowContent += '<p>Distancia desde el centro de Córdoba: ' + distance.toFixed(2) + ' km</p>';
     if (imagenURL) {
         infowindowContent += '<img src="' + imagenURL + '" alt="' + nombre + '">';
     }
@@ -120,49 +120,49 @@ var todasLink = document.getElementById('todas-link');
 
 // Agrega eventos de clic a los elementos del menú de tipo de actividad
 trekkingLink.addEventListener('click', function() {
-    tipoFiltroActual = 'trekking';
+    tipoFiltroActual = 'Trekking';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 motocrossLink.addEventListener('click', function() {
-    tipoFiltroActual = 'motocross';
+    tipoFiltroActual = 'Motocross';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 bicicletaLink.addEventListener('click', function() {
-    tipoFiltroActual = 'bicicleta';
+    tipoFiltroActual = 'Bicicleta';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 todoLink.addEventListener('click', function() {
-    tipoFiltroActual = 'todo';
+    tipoFiltroActual = 'Todo';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 // Agrega eventos de clic a los elementos del menú de dificultad
 facilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'facil';
+    dificultadFiltroActual = 'Facil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 medioLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'medio';
+    dificultadFiltroActual = 'Medio';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 dificilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'dificil';
+    dificultadFiltroActual = 'Dificil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 todasLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'todas';
+    dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
 // Agrega eventos de clic al botón "Mostrar Todos"
 document.getElementById('reset-btn').addEventListener('click', function() {
-    tipoFiltroActual = 'todo';
-    dificultadFiltroActual = 'todas';
+    tipoFiltroActual = 'Todo';
+    dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
