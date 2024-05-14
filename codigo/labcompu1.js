@@ -14,14 +14,14 @@ function initMap() {
 
     // Agrega los marcadores iniciales
     addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', 'Trekking', 'Medio');
-    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Facil');
-    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Facil');
-    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Dificil');
-    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Dificil');
+    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Fácil');
+    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Fácil');
+    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Difícil');
+    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Difícil');
     addMarker(-32.22307606731555, -64.74533972889947, 'Monte Barranco', 'Motocross', 'Medio');
-    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'Todo', 'Dificil');
+    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'Todo', 'Difícil');
     addMarker(-32.40623921216752, -64.89714148934935, 'Salto del Tigre', 'Bicicleta', 'Medio');
-    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'Dificil');
+    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'Difícil');
 
     // Calcula las distancias entre todos los marcadores
     calculateAllDistances();
@@ -149,9 +149,9 @@ var BicicletaLink = document.getElementById('Bicicleta-link');
 var TodoLink = document.getElementById('Todo-link');
 
 // Obtiene los elementos del menú de dificultad
-var FacilLink = document.getElementById('Facil-link');
+var FacilLink = document.getElementById('Fácil-link');
 var MedioLink = document.getElementById('Medio-link');
-var DificilLink = document.getElementById('Dificil-link');
+var DificilLink = document.getElementById('Difícil-link');
 var TodasLink = document.getElementById('Todas-link');
 
 // Agrega eventos de clic a los elementos del menú de tipo de actividad
@@ -177,7 +177,7 @@ TodoLink.addEventListener('click', function() {
 
 // Agrega eventos de clic a los elementos del menú de dificultad
 FacilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'Facil';
+    dificultadFiltroActual = 'Fácil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
@@ -187,7 +187,7 @@ MedioLink.addEventListener('click', function() {
 });
 
 DificilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'Dificil';
+    dificultadFiltroActual = 'Difícil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
