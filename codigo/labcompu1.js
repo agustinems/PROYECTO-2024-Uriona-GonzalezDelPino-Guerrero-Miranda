@@ -3,6 +3,7 @@ let sidebarOpened = false;
 let markers = [];
 let tipoFiltroActual = 'Todo';
 let dificultadFiltroActual = 'Todas';
+let currentInfoWindow = null;
 
 function initMap() {
     // Inicializa el mapa con coordenadas y zoom específicos
@@ -13,14 +14,17 @@ function initMap() {
 
     // Agrega los marcadores iniciales
     addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', 'Trekking', 'Medio');
-    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Fácil');
-    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Fácil');
-    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Difícil');
-    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Difícil');
+    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Facil');
+    addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Facil');
+    addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Dificil');
+    addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Dificil');
     addMarker(-32.22307606731555, -64.74533972889947, 'Monte Barranco', 'Motocross', 'Medio');
-    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'Todo', 'Difícil');
+    addMarker(-32.033007314074695, -64.97060225185818, 'Puesto Don Carlos Ferreyra', 'Todo', 'Dificil');
     addMarker(-32.40623921216752, -64.89714148934935, 'Salto del Tigre', 'Bicicleta', 'Medio');
-    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'Difícil');
+    addMarker(-32.93249434789363, -66.05759463586779, 'Grutas de Intihuasi', 'Bicicleta', 'Dificil');
+
+    // Calcula las distancias entre todos los marcadores
+    calculateAllDistances();
 
     // Filtra los marcadores según los valores iniciales
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
@@ -60,15 +64,16 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     // Agrega el marcador al array de marcadores
     markers.push(marker);
 
-    // Agrega información al marcador
-    var infowindowContent = '<div><h3>' + nombre + '</h3>';
-    infowindowContent += '<p>Tipo: ' + tipo + '</p>';
-    infowindowContent += '<p>Dificultad: ' + dificultad + '</p>';
-    infowindowContent += '<p>Distancia desde el centro de Córdoba: ' + distance.toFixed(2) + ' km</p>';
+    // Inicializa la información del marcador sin las distancias
+    var infowindowContent = `<div><h3>${nombre}</h3>`;
+    infowindowContent += `<p>Tipo: ${tipo}</p>`;
+    infowindowContent += `<p>Dificultad: ${dificultad}</p>`;
+    infowindowContent += `<p>Distancia desde el centro de Córdoba: ${distance.toFixed(2)} km</p>`;
     if (imagenURL) {
-        infowindowContent += '<img src="' + imagenURL + '" alt="' + nombre + '">';
+        infowindowContent += `<img src="${imagenURL}" alt="${nombre}">`;
     }
-    infowindowContent += '</div>';
+    infowindowContent += `<div id="distances-${nombre.replace(/\s/g, '-')}"></div>`;
+    infowindowContent += `</div>`;
 
     var infowindow = new google.maps.InfoWindow({
         content: infowindowContent
@@ -76,7 +81,13 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
 
     // Muestra el cuadro de información al hacer clic en el marcador
     marker.addListener("click", function () {
+        // Cierra la ventana de información actual si hay una abierta
+        if (currentInfoWindow) {
+            currentInfoWindow.close();
+        }
         infowindow.open(map, marker);
+        showDistances(marker, infowindow);
+        currentInfoWindow = infowindow; // Establece la infowindow actual como la que se acaba de abrir
     });
 
     // Cierra la ventana de información cuando el mouse deja el marcador
@@ -89,6 +100,31 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
 function calculateDistance(point1, point2) {
     // Calcula la distancia en kilómetros entre dos puntos
     return (google.maps.geometry.spherical.computeDistanceBetween(point1, point2) / 1000);
+}
+
+function calculateAllDistances() {
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].distances = [];
+        for (let j = 0; j < markers.length; j++) {
+            if (i !== j) {
+                let distance = calculateDistance(markers[i].getPosition(), markers[j].getPosition());
+                markers[i].distances.push({
+                    name: markers[j].getTitle(),
+                    distance: distance
+                });
+            }
+        }
+    }
+}
+
+function showDistances(marker, infowindow) {
+    let distancesDiv = infowindow.getContent().match(/id="distances-[^"]+"/)[0].replace('id="', '').replace('"', '');
+    let distancesContent = '<h4>Distancias a otros marcadores:</h4><ul>';
+    marker.distances.forEach(dist => {
+        distancesContent += `<li>${dist.name}: ${dist.distance.toFixed(2)} km</li>`;
+    });
+    distancesContent += '</ul>';
+    document.getElementById(distancesDiv).innerHTML = distancesContent;
 }
 
 
@@ -113,9 +149,9 @@ var BicicletaLink = document.getElementById('Bicicleta-link');
 var TodoLink = document.getElementById('Todo-link');
 
 // Obtiene los elementos del menú de dificultad
-var FacilLink = document.getElementById('Fácil-link');
+var FacilLink = document.getElementById('Facil-link');
 var MedioLink = document.getElementById('Medio-link');
-var DificilLink = document.getElementById('Difícil-link');
+var DificilLink = document.getElementById('Dificil-link');
 var TodasLink = document.getElementById('Todas-link');
 
 // Agrega eventos de clic a los elementos del menú de tipo de actividad
@@ -141,7 +177,7 @@ TodoLink.addEventListener('click', function() {
 
 // Agrega eventos de clic a los elementos del menú de dificultad
 FacilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'Fácil';
+    dificultadFiltroActual = 'Facil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
@@ -151,7 +187,7 @@ MedioLink.addEventListener('click', function() {
 });
 
 DificilLink.addEventListener('click', function() {
-    dificultadFiltroActual = 'Difícil';
+    dificultadFiltroActual = 'Dificil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
