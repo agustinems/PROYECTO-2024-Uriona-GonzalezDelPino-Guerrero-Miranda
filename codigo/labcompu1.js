@@ -26,6 +26,10 @@ function initMap() {
     // Calcula las distancias entre todos los marcadores
     calculateAllDistances();
 
+    // Calcula y muestra la distancia total del recorrido específico
+    let totalDistance = calculateRouteDistance();
+    console.log(`Distancia total del recorrido desde Los Gigantes hasta Grutas de Intihuasi: ${totalDistance.toFixed(2)} km`);
+
     // Filtra los marcadores según los valores iniciales
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 }
@@ -96,7 +100,6 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     });
 }
 
-
 function calculateDistance(point1, point2) {
     // Calcula la distancia en kilómetros entre dos puntos
     return (google.maps.geometry.spherical.computeDistanceBetween(point1, point2) / 1000);
@@ -117,16 +120,53 @@ function calculateAllDistances() {
     }
 }
 
+function calculateRouteDistance() {
+    const routeOrder = [
+        'Los Gigantes',
+        'Quebrada del Condorito',
+        'Cerro La Ventana',
+        'Champaquí',
+        'Barranca de los Loros',
+        'Puesto Don Carlos Ferreyra',
+        'Monte Barranco',
+        'Salto del Tigre',
+        'Grutas de Intihuasi'
+    ];
+
+    let totalDistance = 0;
+    let accumulatedDistances = {};
+
+    for (let i = 0; i < routeOrder.length; i++) {
+        if (i > 0) {
+            let marker1 = markers.find(marker => marker.getTitle() === routeOrder[i - 1]);
+            let marker2 = markers.find(marker => marker.getTitle() === routeOrder[i]);
+            if (marker1 && marker2) {
+                let distance = calculateDistance(marker1.getPosition(), marker2.getPosition());
+                totalDistance += distance;
+            }
+        }
+        accumulatedDistances[routeOrder[i]] = totalDistance;
+    }
+
+    // Almacena las distancias acumuladas en los marcadores
+    markers.forEach(marker => {
+        if (accumulatedDistances[marker.getTitle()] !== undefined) {
+            marker.totalDistance = accumulatedDistances[marker.getTitle()];
+        }
+    });
+
+    return totalDistance;
+}
+
 function showDistances(marker, infowindow) {
     let distancesDiv = infowindow.getContent().match(/id="distances-[^"]+"/)[0].replace('id="', '').replace('"', '');
     let distancesContent = '<h4>Distancias a otros marcadores:</h4><ul>';
     marker.distances.forEach(dist => {
         distancesContent += `<li>${dist.name}: ${dist.distance.toFixed(2)} km</li>`;
     });
-    distancesContent += '</ul>';
+    distancesContent += `</ul><p><strong>Distancia total acumulada: ${marker.totalDistance.toFixed(2)} km</strong></p>`;
     document.getElementById(distancesDiv).innerHTML = distancesContent;
 }
-
 
 function filterMarkers(tipoFiltro, dificultadFiltro) {
     // Itera sobre todos los marcadores
@@ -154,7 +194,7 @@ var MedioLink = document.getElementById('Medio-link');
 var DificilLink = document.getElementById('Difícil-link');
 var TodasLink = document.getElementById('Todas-link');
 
-// Agrega eventos de clic a los elementos del menú de tipo de actividad
+// Agrega eventos de clic a los enlaces del menú lateral
 TrekkingLink.addEventListener('click', function() {
     tipoFiltroActual = 'Trekking';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
@@ -175,7 +215,7 @@ TodoLink.addEventListener('click', function() {
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-// Agrega eventos de clic a los elementos del menú de dificultad
+// Agrega eventos de clic a los enlaces del menú de dificultad
 FacilLink.addEventListener('click', function() {
     dificultadFiltroActual = 'Fácil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
