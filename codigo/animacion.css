@@ -52,21 +52,3 @@ body {
 transform-origin: center; /* Establece el origen de la transformación en el centro de la imagen */
 }
 
-@keyframes rotar-margenes {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: translateX(calc(100vw - 350px)) rotate(0deg); /*el primer cuarto de la animacion comienza a 80px del borde derecho de la pantalla */
-    }
-    50% {
-        transform: translateY(calc(130vh - 550px)) translateX(calc(100vw - 350px)) rotate(0deg); /*Debido a que el translate x tiene el mismo valor, baja directamente a una altura de 350px sobre el limite inferios. */
-    }
-    75% {
-        transform:  translateY(calc(130vh - 550px)) rotate(0deg); /* Vuelve al eje x del origen pero a 55px del borde inferior. */
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-
-}
