@@ -242,3 +242,5 @@ document.getElementById('reset-btn').addEventListener('click', function() {
     dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
+
+// Agrega eventos de clic al botón de menú
