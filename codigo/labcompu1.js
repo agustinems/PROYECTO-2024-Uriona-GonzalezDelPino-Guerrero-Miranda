@@ -14,7 +14,7 @@ function initMap() {
 
     // Agrega los marcadores iniciales
     addMarker(-31.39488696218396, -64.78142261288407, 'Los Gigantes', 'Trekking', 'Medio');
-    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros', ['Motocross', 'Bicicleta'], 'Fácil');
+    addMarker(-31.983767756656356, -65.05089123024524, 'Barranca de los Loros',  'Todo', 'Fácil');
     addMarker(-31.61034635258693, -64.71301037710637, 'Quebrada del Condorito', 'Trekking', 'Fácil');
     addMarker(-31.900698479488604, -64.92631018758956, 'Cerro La Ventana', 'Trekking', 'Difícil');
     addMarker(-31.956203544673688, -64.9433081765019, 'Champaquí', 'Trekking', 'Difícil');

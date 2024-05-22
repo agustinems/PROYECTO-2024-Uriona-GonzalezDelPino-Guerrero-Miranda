@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: rgb(184, 113, 2);
     padding: 0px;
 
     .barra-superior {
@@ -34,7 +34,7 @@ body {
 
 .login-box {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -47,8 +47,26 @@ body {
     width: 30px;
     height: 30px;
     animation-name: rotar-margenes;
-    animation-duration: 13s;
+    animation-duration: 12s;
     animation-iteration-count: infinite; /alternaria a una o 2 veces/
 transform-origin: center; /* Establece el origen de la transformación en el centro de la imagen */
 }
 
+@keyframes rotar-margenes {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: translateX(calc(100vw - 350px)) rotate(0deg); /*el primer cuarto de la animacion comienza a 80px del borde derecho de la pantalla */
+    }
+    50% {
+        transform: translateY(calc(130vh - 550px)) translateX(calc(100vw - 350px)) rotate(0deg); /*Debido a que el translate x tiene el mismo valor, baja directamente a una altura de 350px sobre el limite inferios. */
+    }
+    75% {
+        transform:  translateY(calc(130vh - 550px)) rotate(0deg); /* Vuelve al eje x del origen pero a 55px del borde inferior. */
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+
+}
