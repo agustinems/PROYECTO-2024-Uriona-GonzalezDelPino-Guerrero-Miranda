@@ -62,7 +62,7 @@ body {
     height: 30px;
     animation-name: rotar-margenes;
     animation-duration: 12s;
-    animation-iteration-count: infinite; /alternaria a una o 2 veces/
+    animation-iteration-count: infinite; /*alternaria a una o 2 veces*/
 transform-origin: center; /* Establece el origen de la transformación en el centro de la imagen */
 }
 
