@@ -22,7 +22,7 @@ window.onload = function() {
     canvas.height = window.innerHeight;
 
     const logo = new Image();
-    logo.src = "../logo-mugg2.png"; // Ruta relativa
+    logo.src = "../docs/imagenes/logo-mugg2.png"; // Ruta relativa
 
     logo.onload = function() {
         let x = Math.random() * (canvas.width - 100);
