@@ -32,8 +32,8 @@ body{
 
     height: 100%;
     width: 95vw;
-    margin-left:auto; /* Centra el mapa hacia la izquierda */
-    margin-right: 10; /* Elimina el margen derecho */
+    margin-left: 4%; /* Centra el mapa hacia la izquierda */
+    margin-right: auto; /* Elimina el margen derecho */
 
 }
 
