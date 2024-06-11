@@ -182,64 +182,65 @@ function filterMarkers(tipoFiltro, dificultadFiltro) {
     }
 }
 
-// Obtiene los elementos del menú lateral
-var TrekkingLink = document.getElementById('Trekking-link');
-var MotocrossLink = document.getElementById('Motocross-link');
-var BicicletaLink = document.getElementById('Bicicleta-link');
-var TodoLink = document.getElementById('Todo-link');
+function filterMarkersByDistance(maxDistance) {
+    var center = map.getCenter();
+    markers.forEach(marker => {
+        var markerPosition = marker.getPosition();
+        var distance = calculateDistance(center, markerPosition);
+        if (distance <= maxDistance) {
+            marker.setVisible(true);
+        } else {
+            marker.setVisible(false);
+        }
+    });
+}
 
-// Obtiene los elementos del menú de dificultad
-var FacilLink = document.getElementById('Fácil-link');
-var MedioLink = document.getElementById('Medio-link');
-var DificilLink = document.getElementById('Difícil-link');
-var TodasLink = document.getElementById('Todas-link');
-
-// Agrega eventos de clic a los enlaces del menú lateral
-TrekkingLink.addEventListener('click', function() {
+// Añade eventos a los enlaces del menú lateral
+document.getElementById("Trekking-link").addEventListener("click", function() {
     tipoFiltroActual = 'Trekking';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-MotocrossLink.addEventListener('click', function() {
+document.getElementById("Motocross-link").addEventListener("click", function() {
     tipoFiltroActual = 'Motocross';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-BicicletaLink.addEventListener('click', function() {
+document.getElementById("Bicicleta-link").addEventListener("click", function() {
     tipoFiltroActual = 'Bicicleta';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-TodoLink.addEventListener('click', function() {
+document.getElementById("Todo-link").addEventListener("click", function() {
     tipoFiltroActual = 'Todo';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-// Agrega eventos de clic a los enlaces del menú de dificultad
-FacilLink.addEventListener('click', function() {
+document.getElementById("Fácil-link").addEventListener("click", function() {
     dificultadFiltroActual = 'Fácil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-MedioLink.addEventListener('click', function() {
+document.getElementById("Medio-link").addEventListener("click", function() {
     dificultadFiltroActual = 'Medio';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-DificilLink.addEventListener('click', function() {
+document.getElementById("Difícil-link").addEventListener("click", function() {
     dificultadFiltroActual = 'Difícil';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-
-TodasLink.addEventListener('click', function() {
+document.getElementById("Todas-link").addEventListener("click", function() {
     dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
 
-// Agrega eventos de clic al botón "Mostrar Todos"
-document.getElementById('reset-btn').addEventListener('click', function() {
+// Añade un evento al botón de filtro de distancia
+document.getElementById('distance-filter-btn').addEventListener('click', function() {
+    var maxDistance = document.getElementById('distance-input').value;
+    if (maxDistance) {
+        filterMarkersByDistance(parseFloat(maxDistance));
+    }
+});
+
+// Evento para el botón de "Mostrar Todos"
+document.getElementById("reset-btn").addEventListener("click", function() {
     tipoFiltroActual = 'Todo';
     dificultadFiltroActual = 'Todas';
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 });
-

@@ -6,6 +6,7 @@
     <title>Mapa</title>
     <link rel="stylesheet" href="labcompu1.css">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+
 </head>
 <body>
 <div id="map-container">
@@ -29,15 +30,20 @@
         <ul>
             <li id="reset-btn"><button>Mostrar Todos</button></li>
         </ul>
+        <h2>Distancia Máxima</h2>
+        <ul>
+            <li><input type="number" id="distance-input" placeholder="Distancia en km">
+                <button id="distance-filter-btn">Filtrar</button>
+            </li>
+        </ul>
     </div>
     <div id="menu-toggle" onclick="toggleSidebar()">
-        <img src="" alt=""><img src="../docs/barras.png" height="50" width="40" class="barras"/>
+        <img src="" alt=""><img src="../barras.png" height="50" width="40" class="barras"/>
     </div>
 </div>
+<div id="center-marker"></div>
 <script src="labcompu1.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE42F0coCS36qezWr4HpHBtfjW8yvtvqQ&libraries=geometry&callback=initMap" async defer></script>
 
 </body>
 </html>
-
-
