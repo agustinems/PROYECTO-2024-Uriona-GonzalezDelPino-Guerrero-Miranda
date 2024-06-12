@@ -5,7 +5,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    if (username === "usuario" && password === "contraseña") {
+    if (username === "MUGG" && password === "contraseña") {
         // Redirigir a la página principal
         window.location.href = "labcomp1.html";
     } else {
