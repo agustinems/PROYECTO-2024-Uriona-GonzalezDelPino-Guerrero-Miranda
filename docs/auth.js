@@ -22,6 +22,7 @@ window.onload = function() {
     canvas.height = window.innerHeight;
 
     const logo = new Image();
+   logo.src = "";
     logo.src = '/logomugg.jpg'; // Ruta relativa correcta para GitHub Pages
 
     logo.onload = function() {
