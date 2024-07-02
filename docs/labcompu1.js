@@ -33,9 +33,8 @@ function initMap() {
     // Filtra los marcadores según los valores iniciales
     filterMarkers(tipoFiltroActual, dificultadFiltroActual);
 }
-
+// Abre o cierra el menú lateral y ajusta la posición del botón de menú
 function toggleSidebar() {
-    // Abre o cierra el menú lateral y ajusta la posición del botón de menú
     var sidebar = document.getElementById("sidebar");
     var menuToggle = document.getElementById("menu-toggle");
 
@@ -50,6 +49,7 @@ function toggleSidebar() {
     sidebarOpened = !sidebarOpened;
 }
 
+//crea los marcadores en el mapa
 function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     var marker = new google.maps.Marker({
         position: { lat: lat, lng: lng },
@@ -100,11 +100,12 @@ function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     });
 }
 
+// Calcula la distancia en kilómetros entre dos puntos
 function calculateDistance(point1, point2) {
-    // Calcula la distancia en kilómetros entre dos puntos
     return (google.maps.geometry.spherical.computeDistanceBetween(point1, point2) / 1000);
 }
 
+//calcula la distancia entre los marcadores
 function calculateAllDistances() {
     for (let i = 0; i < markers.length; i++) {
         markers[i].distances = [];
@@ -120,6 +121,7 @@ function calculateAllDistances() {
     }
 }
 
+// Calcula la distancia acumulada entre los marcadores
 function calculateRouteDistance() {
     const routeOrder = [
         'Los Gigantes',
@@ -158,6 +160,7 @@ function calculateRouteDistance() {
     return totalDistance;
 }
 
+// Muestra las distancias a otros marcadores en la ventana de información
 function showDistances(marker, infowindow) {
     let distancesDiv = infowindow.getContent().match(/id="distances-[^"]+"/)[0].replace('id="', '').replace('"', '');
     let distancesContent = '<h4>Distancias a otros marcadores:</h4><ul>';
@@ -168,8 +171,9 @@ function showDistances(marker, infowindow) {
     document.getElementById(distancesDiv).innerHTML = distancesContent;
 }
 
+// Itera sobre todos los marcadores
 function filterMarkers(tipoFiltro, dificultadFiltro) {
-    // Itera sobre todos los marcadores
+
     for (let i = 0; i < markers.length; i++) {
         // Comprueba si el marcador coincide con el tipo y la dificultad seleccionados
         if ((tipoFiltro === 'Todo' || markers[i].tipo.includes(tipoFiltro)) && (dificultadFiltro === 'Todas' || markers[i].dificultad === dificultadFiltro)) {
@@ -182,6 +186,7 @@ function filterMarkers(tipoFiltro, dificultadFiltro) {
     }
 }
 
+// Filtra los marcadores según la distancia desde el centro del mapa
 function filterMarkersByDistance(maxDistance) {
     var center = map.getCenter();
     markers.forEach(marker => {

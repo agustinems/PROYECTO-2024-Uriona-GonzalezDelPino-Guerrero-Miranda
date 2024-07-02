@@ -13,6 +13,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
     }
 });
 
+// canvas
 window.onload = function() {
     const canvas = document.getElementById('logoCanvas');
     const ctx = canvas.getContext('2d');
