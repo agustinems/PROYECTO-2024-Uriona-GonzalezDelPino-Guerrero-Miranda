@@ -22,7 +22,7 @@ window.onload = function() {
     canvas.height = window.innerHeight;
 
     const logo = new Image();
- logo.src = "/logo-mugg2.png"; // Ruta absoluta
+    logo.src = "/logo-mugg2.jpg"; // Ruta absoluta
 
     logo.onload = function() {
         let x = Math.random() * (canvas.width - 100);
@@ -40,7 +40,7 @@ window.onload = function() {
             if (x + dx > canvas.width - logoWidth || x + dx < 0) {
                 dx = -dx; // Invertir la dirección en el eje x si llega al borde del canvas
             }
-            if (y + dy > canvas.height - logoHeight || y + dy < 0) {
+            if (y + dy > canvas.height - logoHeight ||  y + dy < 0) {
                 dy = -dy; // Invertir la dirección en el eje y si llega al borde del canvas
             }
 
