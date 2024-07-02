@@ -22,7 +22,7 @@ window.onload = function() {
     canvas.height = window.innerHeight;
 
     const logo = new Image();
-    logo.src = '/logo-mugg2.jpg'; // Ruta relativa correcta para GitHub Pages
+    logo.src = '/logomugg.jpg'; // Ruta relativa correcta para GitHub Pages
 
     logo.onload = function() {
         let x = Math.random() * (canvas.width - 100);
