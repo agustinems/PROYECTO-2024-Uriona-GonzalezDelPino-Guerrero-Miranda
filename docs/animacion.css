@@ -58,16 +58,3 @@ body {
     height: 100%;
     z-index: 5; /* La animación queda detrás del login */
 }
-
-/* Estilos de la imagen logo */
-.persona {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    width: 30px;
-    height: 30px;
-    animation-name: rotar-margenes;
-    animation-duration: 12s;
-    animation-iteration-count: infinite;
-    transform-origin: center;
-}
