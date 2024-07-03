@@ -13,7 +13,7 @@ document.getElementById("login-form").addEventListener("submit", function(event)
     }
 });
 
-// canvas
+// Canvas
 window.onload = function() {
     const canvas = document.getElementById('logoCanvas');
     const ctx = canvas.getContext('2d');
@@ -24,7 +24,7 @@ window.onload = function() {
 
     const logo = new Image();
    logo.src = "";
-    logo.src = '/logomugg.jpg'; // Ruta relativa correcta para GitHub Pages
+    logo.src = '/logomugg.png'; // Ruta relativa correcta para GitHub Pages
 
     logo.onload = function() {
         let x = Math.random() * (canvas.width - 100);

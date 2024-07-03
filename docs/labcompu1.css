@@ -3,9 +3,9 @@
     position: relative;
     display: flex;
     height: 100vh;
-
 }
-/*adaptacion celular*/
+
+/* Adaptacion celular*/
 body{
     
     img{
@@ -26,8 +26,7 @@ body{
         column-count: 3; 
         }
     }
-    
-    
+
 }
 
 /* Contenedor principal */
@@ -40,7 +39,7 @@ body{
 
 }
 
-/* barra lateral*/
+/* Barra lateral*/
 #sidebar {
     position: absolute;
     top: 0;
@@ -79,7 +78,8 @@ body{
     z-index: 999; /* Asegura que esté por encima del mapa */
     transition: 0.5s; /* Agrega transición para el movimiento del botón */
 }
-/*botones filtro*/
+
+/* Botones filtro*/
 button {
     display: block;
     width: 100%;
@@ -117,7 +117,7 @@ button:hover {
 #reset-btn button:hover {
     background-color: #c82333;
 }
-/*marcador para el filtro de distancia*/
+/* Marcador para el filtro de distancia*/
 #center-marker {
      position: fixed;
      top: 50%;

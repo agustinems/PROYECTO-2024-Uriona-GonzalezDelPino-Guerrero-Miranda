@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- adaptacion a dispositivos moviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Adaptacion a dispositivos moviles -->
     <title>Mapa</title>
     <link rel="stylesheet" href="labcompu1.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no">   <!-- adaptacion a dispositivos moviles -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">   <!-- Adaptacion a dispositivos moviles -->
 
 </head>
 <body>
@@ -15,14 +15,14 @@
         <h1>Menú</h1>   <!-- barra lateral -->
         <h2>Actividad</h2>
         <ul>
-            <li><button id="Trekking-link">Trekking</button></li> <!-- botones de filtro actividad -->
+            <li><button id="Trekking-link">Trekking</button></li> <!-- Botones de filtro actividad -->
             <li><button id="Motocross-link">Motocross</button></li>
             <li><button id="Bicicleta-link">Bicicleta</button></li>
             <li><button id="Todo-link">Todo</button></li>
         </ul>
         <h2>Dificultad</h2>
         <ul>
-            <li><button id="Fácil-link">Fácil</button></li> <!-- botones de filtro dificultad -->
+            <li><button id="Fácil-link">Fácil</button></li> <!-- Botones de filtro dificultad -->
             <li><button id="Medio-link">Medio</button></li>
             <li><button id="Difícil-link">Difícil</button></li>
             <li><button id="Todas-link">Todas</button></li>
@@ -30,20 +30,20 @@
         <ul>
             <li id="reset-btn"><button>Mostrar Todos</button></li>
         </ul>
-        <h2>Distancia Máxima</h2> <!-- filtro de distancia -->
+        <h2>Distancia Máxima</h2> <!-- Filtro de distancia -->
         <ul>
             <li><input type="number" id="distance-input" placeholder="Distancia en km">
                 <button id="distance-filter-btn">Filtrar</button>
             </li>
         </ul>
     </div>
-    <div id="menu-toggle" onclick="toggleSidebar()">   <!-- boton de barra lateral -->
-        <img src="" alt=""><img src="barras.jpg" height="50" width="50"/>
+    <div id="menu-toggle" onclick="toggleSidebar()">   <!-- Boton de barra lateral -->
+        <img src="" alt=""><img src="barras.png" height="50" width="50"/>
     </div>
 </div>
 <div id="center-marker"></div>
 <script src="labcompu1.js"></script>
-<!-- api google maps -->
+<!-- API google maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE42F0coCS36qezWr4HpHBtfjW8yvtvqQ&libraries=geometry&callback=initMap" async defer></script>
 </body>
 </html>

@@ -49,7 +49,7 @@ function toggleSidebar() {
     sidebarOpened = !sidebarOpened;
 }
 
-//crea los marcadores en el mapa
+// Crea los marcadores en el mapa
 function addMarker(lat, lng, nombre, tipo, dificultad, imagenURL) {
     var marker = new google.maps.Marker({
         position: { lat: lat, lng: lng },
@@ -105,7 +105,7 @@ function calculateDistance(point1, point2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(point1, point2) / 1000);
 }
 
-//calcula la distancia entre los marcadores
+// Calcula la distancia entre los marcadores
 function calculateAllDistances() {
     for (let i = 0; i < markers.length; i++) {
         markers[i].distances = [];
